@@ -16,6 +16,6 @@ public class BulletBehaviour : MonoBehaviour
     }
 
     void BulletDefaultMovement(){
-        bulletObject.transform.position.x += new Vector3(1,0,0); 
+        bulletObject.transform.position += new Vector3(1,0,0); 
     }
 }
