@@ -13,7 +13,6 @@ public class CoinSpawnerBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject scenarioObject;
 
-
     void Awake(){
         coinPrefab = Resources.Load<GameObject>("Prefabs/Coin");
         cameraObject = GameObject.Find("Main Camera") as GameObject;

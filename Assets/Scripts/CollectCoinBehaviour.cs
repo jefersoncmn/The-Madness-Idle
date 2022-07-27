@@ -14,15 +14,17 @@ public class CollectCoinBehaviour : MonoBehaviour
     public static event Action<string> OnCollectCoin;
 
     void Awake(){
-        playerObject = this.gameObject;
-        gold = GetComponent<Gold>();
+        // playerObject = this.gameObject;
+        playerObject = GameObject.Find("Player") as GameObject;
+        gold = playerObject.GetComponent<Gold>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {   
         if(collision.gameObject.tag == "Coin"){
-            CollectCoin(collision);
+            CollectCoin(collision);  
         }
+        
     }
 
     void CollectCoin(Collider2D collision){
