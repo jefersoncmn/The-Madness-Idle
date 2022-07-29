@@ -46,8 +46,11 @@ No projeto será estudado:
   - [ ] Tempo de recarga
 - [x] Atirar
   - [x] Coletar moedas com os tiros
-- [ ] Pool Objects para controlar as instâncias de tiros e moedas. *Prioridade*
+- [x] Pool Objects para controlar as instâncias de tiros e moedas.
 - [ ] Comprar itens
+  - [ ] UI da Loja
+  - [ ] Itens
+  - [ ] Comprar item
 - [ ] Contador de almas
 - [ ] Arvore de habidades
 

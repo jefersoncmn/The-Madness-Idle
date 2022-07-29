@@ -13,6 +13,8 @@ public class CoinSpawnerBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject scenarioObject;
 
+    ObjectPooler objectPooler;
+
     void Awake(){
         coinPrefab = Resources.Load<GameObject>("Prefabs/Coin");
         cameraObject = GameObject.Find("Main Camera") as GameObject;
@@ -23,11 +25,12 @@ public class CoinSpawnerBehaviour : MonoBehaviour
 
     void Start()
     {
+        objectPooler = ObjectPooler.Instance;
         InvokeRepeating("SpawnCoin", 2.0f, 1.0f);
     }
 
     void SpawnCoin(){
         var position = new Vector3(cameraObject.transform.position.x+15, Random.Range(verticalRange[0],verticalRange[1]), 0);
-        Instantiate(coinPrefab, position, Quaternion.identity, scenarioObject.transform);
+        objectPooler.SpawnFromPool("Coin", position, Quaternion.identity);
     }
 }

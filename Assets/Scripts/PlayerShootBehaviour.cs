@@ -10,11 +10,17 @@ public class PlayerShootBehaviour : MonoBehaviour
     private GameObject playerObject;
     [SerializeField]
     private GameObject scenarioObject;
+    
+    ObjectPooler objectPooler;
 
     void Awake(){
         playerObject = this.gameObject;
         bulletPrefab = Resources.Load<GameObject>("Prefabs/Bullet");
         scenarioObject = GameObject.Find("Scenario") as GameObject;
+    }
+
+    void Start(){
+        objectPooler = ObjectPooler.Instance;
     }
 
     void Update(){
@@ -24,6 +30,7 @@ public class PlayerShootBehaviour : MonoBehaviour
     }
 
     void Shoot(){
-        Instantiate(bulletPrefab, playerObject.transform.position, Quaternion.identity, scenarioObject.transform);
+        objectPooler.SpawnFromPool("Bullet", playerObject.transform.position, Quaternion.identity);
+        
     }
 }
