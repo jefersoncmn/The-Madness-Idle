@@ -24,6 +24,8 @@ public class PlayerShootBehaviour : MonoBehaviour
     }
 
     void Update(){
+        if(GameStateManager.currentGameState == GameState.Gameplay)
+            return;
         if (Input.GetMouseButtonDown(0)){
             Shoot();
         }

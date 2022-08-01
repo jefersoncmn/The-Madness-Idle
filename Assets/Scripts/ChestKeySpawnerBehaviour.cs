@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinSpawnerBehaviour : MonoBehaviour
+public class ChestKeySpawnerBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private GameObject coinPrefab;
+    private GameObject chestKeyPrefab;
     [SerializeField]
-    private float[] verticalRange;
+    private float positionY;
     [SerializeField]
     private GameObject cameraObject;
     [SerializeField]
@@ -16,23 +16,23 @@ public class CoinSpawnerBehaviour : MonoBehaviour
     ObjectPooler objectPooler;
 
     void Awake(){
-        coinPrefab = Resources.Load<GameObject>("Prefabs/Coin");
+        chestKeyPrefab = Resources.Load<GameObject>("Prefabs/ChestKey");
         cameraObject = GameObject.Find("Main Camera") as GameObject;
         scenarioObject = GameObject.Find("Scenario") as GameObject;
 
-        verticalRange = new float[]{3, 6};
+        positionY = 4;
     }
 
     void Start()
     {
         objectPooler = ObjectPooler.Instance;
-        InvokeRepeating("SpawnCoin", 2.0f, 1.0f);
+        InvokeRepeating("SpawnChestKey", 2.0f, 1.0f);
     }
 
-    void SpawnCoin(){
+    void SpawnChestKey(){
         if(GameStateManager.currentGameState == GameState.Gameplay)
             return;
-        var position = new Vector3(cameraObject.transform.position.x+15, Random.Range(verticalRange[0],verticalRange[1]), 0);
-        objectPooler.SpawnFromPool("Coin", position, Quaternion.identity);
+        var position = new Vector3(cameraObject.transform.position.x+15, positionY, 0);
+        objectPooler.SpawnFromPool("ChestKey", position, Quaternion.identity);
     }
 }

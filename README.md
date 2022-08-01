@@ -47,6 +47,13 @@ No projeto será estudado:
 - [x] Atirar
   - [x] Coletar moedas com os tiros
 - [x] Pool Objects para controlar as instâncias de tiros e moedas.
+- [ ] Pausar jogo
+- [ ] Desafio do baús
+  - [ ] Chave para iniciar o desafio
+  - [ ] Instanciar os baús com itens dentro
+    - [ ] Baús mímicos
+      - [ ] Encerrar a fase
+    - [ ] Baís com dinheiro
 - [ ] Comprar itens
   - [ ] UI da Loja
   - [ ] Itens

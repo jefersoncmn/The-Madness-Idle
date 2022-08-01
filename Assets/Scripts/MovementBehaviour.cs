@@ -43,19 +43,19 @@ public class MovementBehaviour : MonoBehaviour
         playerCollider = GetComponent<BoxCollider2D>();
     }
 
-    void Start()
-    {
-
-    }
     
     void Update()
     {
+        if(GameStateManager.currentGameState == GameState.Gameplay)
+            return;
         MouseClickToJump();
     }
 
     
 
     void FixedUpdate(){
+        if(GameStateManager.currentGameState == GameState.Gameplay)
+            return;
         if(boostMovementIsActive){
             PlayerBoostMoviment();
         } else {
